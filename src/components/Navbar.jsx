@@ -10,18 +10,18 @@ const Navbar = () => {
 
   return (
     <nav
-      class={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 bg-primary`}
+      className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 bg-primary`}
     >
-      <div class='w-full flex justify-between items-center max-w-7xl mx-auto'>
+      <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
         <Link
           to='/'
-          class='flex items-center gap-2'
+          className='flex items-center gap-2'
           onClick={() => {
             setActive('');
             window.scrollTo(0, 0);
           }}
         >
-          <img src={logo} alt='logo' class='w-12 h-11 object-contain' />
+          <img src={logo} alt='logo' className='w-12 h-11 object-contain' />
           <p className='text-white text-[18px] font-bold flex cursor-pointer'>
             Nick &nbsp;
             <span className='sm:block hidden'>Sabadicci</span>

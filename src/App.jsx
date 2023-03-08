@@ -15,12 +15,9 @@ import {
 function App() {
   return (
     <BrowserRouter>
-      <div class='relative z-0 bg-primary'>
-        <div class='bg-hero-pattern bg-cover bg-no-repeat bg-center'>
+      <div className='relative z-0 bg-primary'>
+        <div className='bg-hero-pattern bg-cover bg-no-repeat bg-center'>
           <Navbar />
-          <h1 className='text-9x10 font-bold text-red-500 underline-text-center'>
-            hello
-          </h1>
           <Hero />
         </div>
         <About />
