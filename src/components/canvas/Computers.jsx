@@ -55,14 +55,14 @@ const ComputersCanvas = () => {
   }, []);
 
   return (
-    <Suspense fallback={<CanvasLoader />}>
-      <Canvas
-        frameloop='demand'
-        shadows
-        dpr={[1, 2]}
-        camera={{ position: [20, 3, 5], fov: 25 }}
-        gl={{ preserveDrawingBuffer: true }}
-      >
+    <Canvas
+      frameloop='demand'
+      shadows
+      dpr={[1, 2]}
+      camera={{ position: [20, 3, 5], fov: 25 }}
+      gl={{ preserveDrawingBuffer: true }}
+    >
+      <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
           enableZoom={false}
           maxPolarAngle={Math.PI / 2}
@@ -71,8 +71,8 @@ const ComputersCanvas = () => {
         <Computers isMobile={isMobile} />
 
         <Preload all />
-      </Canvas>
-    </Suspense>
+      </Suspense>
+    </Canvas>
   );
 };
 
