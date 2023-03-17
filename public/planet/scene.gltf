@@ -261,7 +261,7 @@
   "buffers": [
     {
       "byteLength": 1649176,
-      "uri": "scene.bin.gz"
+      "uri": "scene.bin"
     }
   ],
   "extensionsUsed": ["KHR_materials_unlit"],
