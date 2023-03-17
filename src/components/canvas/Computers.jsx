@@ -4,9 +4,8 @@ import { OrbitControls, Preload, useGLTF } from '@react-three/drei';
 
 import CanvasLoader from '../Loader';
 
-// My first 3js React3Fiber Canvas
 const Computers = ({ isMobile }) => {
-  const computer = useGLTF('./desktop_pc/scene.gltf');
+  const computer = useGLTF('./desktop_pc/scene.gltf.gz');
 
   return (
     <mesh>

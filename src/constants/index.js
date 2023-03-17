@@ -23,6 +23,13 @@ import {
   jobit,
   tripguide,
   threejs,
+  aws,
+  golang,
+  hadoop,
+  java,
+  jest,
+  postgres,
+  sql,
 } from '../assets';
 
 export const navLinks = [
@@ -42,32 +49,20 @@ export const navLinks = [
 
 const services = [
   {
-    title: 'Web Developer',
+    title: 'Frontend Dev',
     icon: web,
   },
   {
-    title: 'React Native Developer',
-    icon: mobile,
-  },
-  {
-    title: 'Backend Developer',
+    title: 'Backend Dev',
     icon: backend,
   },
   {
-    title: 'Content Creator',
-    icon: creator,
+    title: 'Test',
+    icon: mobile,
   },
 ];
 
 const technologies = [
-  {
-    name: 'HTML 5',
-    icon: html,
-  },
-  {
-    name: 'CSS 3',
-    icon: css,
-  },
   {
     name: 'JavaScript',
     icon: javascript,
@@ -77,16 +72,16 @@ const technologies = [
     icon: typescript,
   },
   {
+    name: 'Golang',
+    icon: golang,
+  },
+  {
+    name: 'Java',
+    icon: java,
+  },
+  {
     name: 'React JS',
     icon: reactjs,
-  },
-  {
-    name: 'Redux Toolkit',
-    icon: redux,
-  },
-  {
-    name: 'Tailwind CSS',
-    icon: tailwind,
   },
   {
     name: 'Node JS',
@@ -95,6 +90,29 @@ const technologies = [
   {
     name: 'MongoDB',
     icon: mongodb,
+  },
+  {
+    name: 'AWS',
+    icon: aws,
+  },
+  {
+    name: 'SQL',
+    icon: sql,
+  },
+  {
+    name: 'PostgresSQL',
+    icon: postgres,
+  },
+];
+
+const extraTechnologies = [
+  {
+    name: 'Hadoop',
+    icon: hadoop,
+  },
+  {
+    name: 'Tailwind CSS',
+    icon: tailwind,
   },
   {
     name: 'Three JS',
@@ -111,6 +129,18 @@ const technologies = [
   {
     name: 'docker',
     icon: docker,
+  },
+  {
+    name: 'HTML 5',
+    icon: html,
+  },
+  {
+    name: 'CSS 3',
+    icon: css,
+  },
+  {
+    name: 'SASS',
+    icon: redux,
   },
 ];
 
@@ -262,4 +292,11 @@ const projects = [
   },
 ];
 
-export { services, technologies, experiences, testimonials, projects };
+export {
+  services,
+  technologies,
+  extraTechnologies,
+  experiences,
+  testimonials,
+  projects,
+};
