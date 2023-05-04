@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import {
   Decal,
@@ -9,6 +9,19 @@ import {
 } from '@react-three/drei';
 
 import CanvasLoader from '../Loader';
+
+const Tooltip = ({ text, visible }) => {
+  return (
+    <div
+      className={`${
+        visible ? 'visible' : 'invisible'
+      } absolute bg-gray-800 text-white py-1 px-2 rounded text-sm transition-opacity duration-200 left-1/2 transform -translate-x-1/2`}
+      style={{ bottom: '120%' }}
+    >
+      {text}
+    </div>
+  );
+};
 
 const Ball = (props) => {
   const [decal] = useTexture([props.imgUrl]);
@@ -35,15 +48,32 @@ const Ball = (props) => {
   );
 };
 
-const BallCanvas = ({ icon }) => {
+const BallCanvas = ({ icon, technology }) => {
+  const [tooltipVisible, setTooltipVisible] = useState(false);
+
+  const handleMouseEnter = () => {
+    setTooltipVisible(true);
+  };
+
+  const handleMouseLeave = () => {
+    setTooltipVisible(false);
+  };
+
   return (
-    <Canvas frameloop='demand' gl={{ preserveDrawingBuffer: true }}>
-      <Suspense fallback={<CanvasLoader />}>
-        <OrbitControls enableZoom={false} />
-        <Ball imgUrl={icon} />
-        <Preload all />
-      </Suspense>
-    </Canvas>
+    <div
+      className='ball-canvas relative inline-block'
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <Canvas frameloop='demand' gl={{ preserveDrawingBuffer: true }}>
+        <Suspense fallback={<CanvasLoader />}>
+          <OrbitControls enableZoom={false} />
+          <Ball imgUrl={icon} />
+          <Preload all />
+        </Suspense>
+      </Canvas>
+      <Tooltip text={technology} visible={tooltipVisible} />
+    </div>
   );
 };
 

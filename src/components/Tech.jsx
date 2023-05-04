@@ -9,19 +9,12 @@ const Tech = () => {
       key='techs-div-1'
     >
       {technologies.map((tech, index) => (
-        <div className='w-28 h-28' key={tech.name}>
-          <BallCanvas icon={tech.icon} />
+        <div className='w-28 h-28 hover:' key={tech.name}>
+          <BallCanvas icon={tech.icon} technology={tech.name} />
         </div>
       ))}
     </div>
   );
 };
 
-/* <div clasName='flex flex-row flex-wrap justify-center gap-10'>
-        {extraTechnologies.map((tech, index) => (
-          <div>
-            <BallCanvas icon={tech.icon} />
-          </div>
-        ))}
-      </div> */
 export default SectionWrapper(Tech, '');
