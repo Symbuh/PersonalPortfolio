@@ -44,10 +44,10 @@ const About = () => {
         variants={fadeIn('', '', 0.1, 1)}
         className='mt4 text-secondary text-[17px] max-w-3x1 leading-[30px]'
       >
-        This is where I'm going to write a little something about myself and
-        where my expertise lies ex: I'm a skilled software developer with
-        experience in typescript and JavaScript and expertise in frameworks like
-        React, Node.js, and Three.js.
+        I'm a skilled software developer with experience in TypeScript and
+        JavaScript and in frameworks like React, Node.js, and Three.js. My
+        favorite backend languages are Node.js, Java and Golang and my #1 choice
+        for databases is PostgreSQL.
       </motion.p>
 
       <div className='mt-20 flex flex-wrap gap-10'>

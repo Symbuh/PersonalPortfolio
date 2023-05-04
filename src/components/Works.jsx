@@ -56,7 +56,7 @@ const ProjectCard = ({
               onClick={() => window.open(source_code_link, '_blank')}
               animate={githubControls}
               className='w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
-              style={{ backgroundColor: githubControls.backgroundColor }}
+              style={{ backgroundColor: 'black' }}
             >
               <motion.img
                 src={github}
@@ -99,12 +99,8 @@ const Works = () => {
           variants={fadeIn('', '', 0.1, 1)}
           className='mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]'
         >
-          The following projects showcase my skill and experience through
-          real-world examples of my work. Each project is briefly described with
-          links to code repositories and live demos if available (some projects
-          aren't deployed). They demonstrate my abilities to solve complex
-          problems, work with different technologies, and manage projects
-          effectively.
+          Here are a select few projects I've recently build which demonstrate
+          my skills as a developer in various languages and frameworks.
         </motion.p>
       </div>
 
