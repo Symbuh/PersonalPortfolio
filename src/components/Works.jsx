@@ -14,17 +14,25 @@ const ProjectCard = ({
   source_code_link,
 }) => {
   const controls = useAnimation();
-  const githubIcon = useAnimation();
+  const githubControls = useAnimation();
 
-  const handleMouseEnter = async () => {
+  const handleMouseEnter = () => {
     controls.start({ scale: 1.1 });
-    await githubIcon.start({ scale: 1.3, backgroundColor: 'FBBF24' });
-    githubIcon.start({ scale: 1.2, backgroundColor: 'black' });
+    githubControls.start({
+      backgroundColor: ['black', 'red', 'black'],
+      scale: [1, 1.3, 1.2],
+      transition: {
+        duration: 1,
+        ease: 'easeInOut',
+        times: [0, 0.5, 1],
+        loop: 2,
+      },
+    });
   };
 
   const handleMouseLeave = () => {
     controls.start({ scale: 1 });
-    githubIcon.start({ scale: 1, backgroundColor: 'black' });
+    githubControls.start({ scale: 1, backgroundColor: 'black' });
   };
 
   return (
@@ -46,11 +54,17 @@ const ProjectCard = ({
           <div className='absolute inset-0 flex justify-end margin-3 card-img_hover'>
             <motion.div
               onClick={() => window.open(source_code_link, '_blank')}
-              animate={githubIcon}
+              animate={githubControls}
               className='w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
-              style={{ backgroundColor: 'black' }}
+              style={{ backgroundColor: githubControls.backgroundColor }}
             >
-              <img src={github} alt={github} className='w-1/2 h-1/2' />
+              <motion.img
+                src={github}
+                alt={github}
+                className='w-1/2 h-1/2'
+                style={{ filter: 'hue-rotate(180deg)' }}
+                animate={githubControls}
+              />
             </motion.div>
           </div>
         </div>
