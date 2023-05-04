@@ -21,7 +21,11 @@ const Navbar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          <img src={logo} className='w-12 h-11 object-contain' />
+          <img
+            src={logo}
+            className='w-13 h-12 object-contain'
+            style={{ filter: 'hue-rotate(288deg)', borderRadius: '40%' }}
+          />
           <p className='text-white text-[18px] font-bold flex cursor-pointer'>
             Nick &nbsp;
             <span className='sm:block hidden'>Sabadicci</span>
