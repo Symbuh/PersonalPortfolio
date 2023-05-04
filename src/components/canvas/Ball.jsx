@@ -30,7 +30,7 @@ const Ball = (props) => {
     <Float speed={1.75} rotationIntensity={1}>
       <ambientLight intensity={0.25} />
       <directionalLight position={[0, 0, 0.05]} />
-      <mesh castShadow recieveShadow scale={2.75}>
+      <mesh castShadow recieveShadow scale={props.scale || 2.75}>
         <icosahedronGeometry args={[1, 1]} />
         <meshStandardMaterial
           color='#fff8eb'
@@ -50,13 +50,16 @@ const Ball = (props) => {
 
 const BallCanvas = ({ icon, technology }) => {
   const [tooltipVisible, setTooltipVisible] = useState(false);
+  const [ballScale, setBallScale] = useState(2.75);
 
   const handleMouseEnter = () => {
     setTooltipVisible(true);
+    setBallScale(3);
   };
 
   const handleMouseLeave = () => {
     setTooltipVisible(false);
+    setBallScale(2.75);
   };
 
   return (
@@ -68,7 +71,7 @@ const BallCanvas = ({ icon, technology }) => {
       <Canvas frameloop='demand' gl={{ preserveDrawingBuffer: true }}>
         <Suspense fallback={<CanvasLoader />}>
           <OrbitControls enableZoom={false} />
-          <Ball imgUrl={icon} />
+          <Ball imgUrl={icon} scale={ballScale} />
           <Preload all />
         </Suspense>
       </Canvas>
