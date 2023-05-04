@@ -117,5 +117,5 @@ const Works = () => {
   );
 };
 
-//TODO: add 'works' section to your header.
 export default SectionWrapper(Works, '');
+//TODO: add 'works' section to your header
