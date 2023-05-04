@@ -1,5 +1,4 @@
-import Tilt from 'react-tilt';
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import { styles } from '../styles';
 import { github } from '../assets';
 import { SectionWrapper } from '../hoc';
@@ -14,15 +13,28 @@ const ProjectCard = ({
   image,
   source_code_link,
 }) => {
+  const controls = useAnimation();
+  const githubIcon = useAnimation();
+
+  const handleMouseEnter = async () => {
+    controls.start({ scale: 1.1 });
+    await githubIcon.start({ scale: 1.3, backgroundColor: 'FBBF24' });
+    githubIcon.start({ scale: 1.2, backgroundColor: 'black' });
+  };
+
+  const handleMouseLeave = () => {
+    controls.start({ scale: 1 });
+    githubIcon.start({ scale: 1, backgroundColor: 'black' });
+  };
+
   return (
-    <motion.div variants={fadeIn('up', 'spring', index * 0.5, 0.75)}>
-      <Tilt
-        options={{
-          max: 45,
-          scale: 1,
-          speed: 450,
-        }}
-        className='bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full'
+    <div className='sm:w-[360px] w-full'>
+      <motion.div
+        variants={fadeIn('up', 'spring', index * 0.5, 0.75)}
+        animate={controls}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        className='bg-tertiary p-5 rounded-2xl sm:w[360px] w-full'
       >
         <div className='relative w-full h-[230px]'>
           <img
@@ -32,16 +44,14 @@ const ProjectCard = ({
           />
 
           <div className='absolute inset-0 flex justify-end margin-3 card-img_hover'>
-            <div
+            <motion.div
               onClick={() => window.open(source_code_link, '_blank')}
-              className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
+              animate={githubIcon}
+              className='w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
+              style={{ backgroundColor: 'black' }}
             >
-              <img
-                src={github}
-                alt={github}
-                className='w-1/2 h-1/2 object-contain'
-              />
-            </div>
+              <img src={github} alt={github} className='w-1/2 h-1/2' />
+            </motion.div>
           </div>
         </div>
 
@@ -57,8 +67,8 @@ const ProjectCard = ({
             </p>
           ))}
         </div>
-      </Tilt>
-    </motion.div>
+      </motion.div>
+    </div>
   );
 };
 

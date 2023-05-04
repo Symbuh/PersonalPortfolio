@@ -5,7 +5,7 @@ import { technologies, extraTechnologies } from '../constants';
 const Tech = () => {
   return (
     <div
-      className='flex flex-row flex-wrap justify-center gap-10'
+      className='flex flex-row flex-wrap justify-center gap-10 mb-1'
       key='techs-div-1'
     >
       {technologies.map((tech, index) => (
@@ -16,9 +16,5 @@ const Tech = () => {
     </div>
   );
 };
-
-//w-1/4 md:w-1/6 sm:w-1/3 xs:w-1/2 min-w-[8rem] max-w-[12rem] h-28
-
-// h-28 w-28
 
 export default SectionWrapper(Tech, '');
